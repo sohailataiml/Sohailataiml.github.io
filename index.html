@@ -633,11 +633,13 @@ BioTe Hormone Replacement Pellet Process</h3>
     // Initialize chatbot when DOM is loaded
     document.addEventListener('DOMContentLoaded', () => {
       new ChatbotWidget();
-    });</script><style class="wpcode-css-snippet">.chatbot-widget {
+    });</script>
+	<style class="wpcode-css-snippet">
+		.chatbot-widget {
     position: fixed;
-    bottom: 20px; /* Keeps vertical position at bottom */
-    left: 20px; /* Moves to left side */
-    z-index: 999999;
+    bottom: 20px; /* Bottom-left corner */
+    left: 20px;
+    z-index: 9999999; /* Overlaps all elements */
     font-family: 'Rajdhani', sans-serif;
 }
 
@@ -682,26 +684,26 @@ BioTe Hormone Replacement Pellet Process</h3>
 
 .chatbot-container {
     position: fixed;
-    bottom: 40px; /* Above toggle button */
-    left: 20px; /* Moves to left side */
-    width: 300px;
-    height: 400px;
+    bottom: 40px; /* Slightly above toggle */
+    left: 20px;
+    width: 348px; /* Exact width for desktop */
+    height: 488px; /* Exact height for desktop */
     background: #503657;
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(80, 54, 87, 0.4);
     display: flex;
     flex-direction: column;
-    z-index: 999999;
+    z-index: 9999999; /* Overlaps all elements */
     border: 1px solid #432e49;
     overflow: hidden;
     opacity: 0;
-    transform: translateY(20px) scale(0.9); /* Removed horizontal centering */
+    transform: translateY(20px) scale(0.9);
     transition: all 0.3s ease;
 }
 
 .chatbot-container.active {
     opacity: 1;
-    transform: translateY(0) scale(1); /* Removed horizontal centering */
+    transform: translateY(0) scale(1);
 }
 
 .chatbot-header {
@@ -859,22 +861,134 @@ BioTe Hormone Replacement Pellet Process</h3>
     fill: currentColor;
 }
 
+/* Extra Small Devices (Phones, <480px) */
 @media (max-width: 480px) {
     .chatbot-container {
-        width: calc(100vw - 40px);
-        height: 60vh;
+        width: calc(100vw - 40px); /* Full width minus padding */
+        height: 60vh; /* Responsive height, shorter than desktop */
         bottom: 40px;
-        left: 20px; /* Left side on mobile */
-        /* z-index: 1000000; */
+        left: 20px;
+        z-index: 9999999;
+        border-radius: 12px;
+    }
+
+    .chatbot-toggle {
+        width: 100px;
+        height: 40px;
+        font-size: 12px;
+        bottom: 20px;
+        left: 20px;
+        z-index: 9999999;
+    }
+
+    .toggle-profile-image {
+        width: 20px;
+        height: 20px;
+    }
+
+    .chatbot-header {
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    .chatbot-header-title img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .chatbot-messages {
+        padding: 12px;
+    }
+
+    .chatbot-message {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .chatbot-input {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .chatbot-send {
+        width: 32px;
+        height: 32px;
+    }
+
+    .chatbot-send svg {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* Small Devices (Tablets, 481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .chatbot-container {
+        width: 90vw; /* Slightly less than full width */
+        height: 55vh; /* Slightly shorter than mobile */
+        bottom: 40px;
+        left: 20px;
+        z-index: 9999999;
+    }
+
+    .chatbot-toggle {
+        width: 110px;
+        height: 42px;
+        font-size: 13px;
+        bottom: 20px;
+        left: 20px;
+        z-index: 9999999;
+    }
+
+    .toggle-profile-image {
+        width: 22px;
+        height: 22px;
+    }
+
+    .chatbot-header {
+        font-size: 13px;
+    }
+
+    .chatbot-messages {
+        padding: 14px;
+    }
+
+    .chatbot-message {
+        font-size: 12.5px;
+    }
+}
+
+/* Medium Devices (Small Laptops, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .chatbot-container {
+        width: 340px; /* Close to desktop width */
+        height: 450px; /* Close to desktop height */
+        bottom: 40px;
+        left: 20px;
+        z-index: 9999999;
+    }
+
+    .chatbot-toggle {
+        width: 115px;
+        height: 44px;
+        font-size: 13.5px;
+    }
+}
+
+/* Large Devices (Desktops, >1024px) */
+@media (min-width: 1025px) {
+    .chatbot-container {
+        width: 348px; /* Exact width for desktop */
+        height: 488px; /* Exact height for desktop */
+        bottom: 40px;
+        left: 20px;
+        z-index: 9999999;
     }
 
     .chatbot-toggle {
         width: 120px;
         height: 45px;
-        /* bottom: 20px; */
         font-size: 14px;
-        /* left: 20px;
-        z-index: 1000000; */
     }
 }
 
@@ -893,7 +1007,8 @@ BioTe Hormone Replacement Pellet Process</h3>
 
 .chatbot-messages::-webkit-scrollbar-thumb:hover {
     background: #8c6a9c;
-}</style><!-- Chatbot Widget HTML -->
+}
+	</style><!-- Chatbot Widget HTML -->
   <div class="chatbot-widget">
     <!-- Toggle Button -->
     <button class="chatbot-toggle" id="chatbotToggle" title="Chat with Marina AI Assistant">
@@ -1108,3 +1223,4 @@ var avia_framework_globals = avia_framework_globals || {};
 				
 </script></body>
 </html>
+
