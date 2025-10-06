@@ -458,7 +458,8 @@ PLAu:10
 </header>
 
 
-<script>   // Chatbot Widget JavaScript
+<script>  
+	 // Chatbot Widget JavaScript
     class ChatbotWidget {
       constructor() {
         this.isOpen = false;
@@ -474,7 +475,7 @@ PLAu:10
         this.input = document.getElementById('chatbotInput');
         this.send = document.getElementById('chatbotSend');
         
-        this.apiUrl = 'https://Muneebur502-mynew-chatbot.hf.space/chat';
+        this.apiUrl = 'https://Muneebur502-mynew-chatbot';
         
         this.init();
       }
@@ -613,11 +614,13 @@ PLAu:10
     // Initialize chatbot when DOM is loaded
     document.addEventListener('DOMContentLoaded', () => {
       new ChatbotWidget();
-    });</script><style class="wpcode-css-snippet">.chatbot-widget {
+    });
+	</script><style class="wpcode-css-snippet">
+		.chatbot-widget {
     position: fixed;
-    bottom: 20px; /* Keeps vertical position at bottom */
-    left: 20px; /* Moves to left side */
-    z-index: 9999999;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
     font-family: 'Rajdhani', sans-serif;
 }
 
@@ -662,26 +665,27 @@ PLAu:10
 
 .chatbot-container {
     position: fixed;
-    bottom: 70px; /* Above toggle button */
-    left: 20px; /* Moves to left side */
-    width: 348px;
-    height: 470px;
+    bottom: 70px;
+    left: 20px;
+    width: 300px;
+    height: 400px;
     background: #503657;
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(80, 54, 87, 0.4);
-    display: flex;
+    display: none; /* Hidden by default - THIS IS THE KEY FIX */
     flex-direction: column;
-    z-index: 9999999;
+    z-index: 999999;
     border: 1px solid #432e49;
     overflow: hidden;
     opacity: 0;
-    transform: translateY(20px) scale(0.9); /* Removed horizontal centering */
-    transition: all 0.3s ease;
+    transform: translateY(20px) scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .chatbot-container.active {
+    display: flex; /* Show when active - THIS IS THE KEY FIX */
     opacity: 1;
-    transform: translateY(0) scale(1); /* Removed horizontal centering */
+    transform: translateY(0) scale(1);
 }
 
 .chatbot-header {
@@ -842,9 +846,9 @@ PLAu:10
 @media (max-width: 480px) {
     .chatbot-container {
         width: calc(100vw - 40px);
-        height: 60vh;
+        height: 80vh;
         bottom: 80px;
-        left: 20px; /* Left side on mobile */
+        left: 20px;
     }
 
     .chatbot-toggle {
@@ -869,7 +873,9 @@ PLAu:10
 
 .chatbot-messages::-webkit-scrollbar-thumb:hover {
     background: #8c6a9c;
-}</style><!-- Chatbot Widget HTML -->
+}
+	</style>
+		 <!-- Chatbot Widget HTML -->
   <div class="chatbot-widget">
     <!-- Toggle Button -->
     <button class="chatbot-toggle" id="chatbotToggle" title="Chat with Marina AI Assistant">
@@ -1108,3 +1114,4 @@ var avia_framework_globals = avia_framework_globals || {};
 				
 </script></body>
 </html>
+
